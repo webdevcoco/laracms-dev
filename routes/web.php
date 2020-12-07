@@ -13,9 +13,9 @@ use App\Http\Controllers\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/home', function() {
-    return view('home');
-});
+// Route::get('/home', function() {
+//     return view('home');
+// });
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,3 +23,7 @@ Route::get('/', function () {
 
 //Route::get('/user', 'UserController@index'); --old
 Route::get('/user', [UserController::class, 'index']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
